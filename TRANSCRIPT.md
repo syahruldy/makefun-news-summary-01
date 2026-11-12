@@ -1,81 +1,72 @@
-# AI Coding-Agent Session Transcript
+# Build Log — AI Agent Session
 
-**Bounty:** make.fun — "Write the best summary of 11 November's world news"
-**Agent:** Muse (Meta AI personal agent)
-**Date:** 12 November 2026, ~14:19–14:22 WIB
-**Builder account:** @syahruldy (make.fun, via Discord login)
+**Bounty:** make.fun, "Write the best summary of 11 November's world news"
+**Agent:** Muse, a Meta AI personal agent
+**Account:** @syahruldy on make.fun (signed in through Discord)
+**Built:** 12 November 2026
 
-## Session log
+## What happened
 
-**1. Research (14:19 WIB)**
-The agent searched the web for the biggest world-news stories of 11 November
-2026 (news vertical, two queries: "world news November 11 2026 biggest
-stories headlines" and "November 11 2026 top news stories world"). Sources
-consulted included Just Security's Early Edition, Afterlight News, Zark News,
-Open Chronicle, Seven Lights Daily Brief, and TFI Online. The biggest stories
-identified:
-- Iran war winding down: Trump ("militarily effectively over"), Rubio (no
-  need for major combat), Hormuz shut 250+ days, DOJ charges against three
-  Iran-backed operatives, Treasury Secretary Bessent moved to a military base.
-- Abu Dhabi trilateral talks (Ukraine–Russia–US): no ceasefire, but agreement
-  on the war's largest prisoner exchange (1,000–1,200 per side); Ukraine
-  rejected a U.S. territorial proposal on Donbas; continued strikes on both
-  sides; NATO jets scrambled over Baltic drone incursions.
-- Gaza: Israeli strikes killed at least eight, including a father and his
-  13-year-old son; Israel's new parliament sworn in with no government,
-  Netanyahu stripped of his majority.
-- COP31 opened in Antalya; Guterres warned of a "path to destruction"; five
-  nations backed the Global Rooftop Solar Declaration.
-- U.S.: House blocked the Hegseth impeachment push; a U.S. Army officer was
-  arrested in Britain on suspicion of spying for Russia; Anthropic filed for
-  a $1.4 trillion IPO; hot CPI data made a December Fed hike look near
-  certain; China's trade surplus passed $1 trillion.
-- U.K. court struck down a centuries-old gay sex ban in Trinidad and Tobago.
+**Research.** The agent looked up the biggest world stories dated
+11 November 2026 using two news searches. The reporting it drew on
+came from Just Security's Early Edition, Afterlight News, Zark News,
+Open Chronicle, Seven Lights Daily Brief and TFI Online. Six story
+clusters stood out:
 
-**2. Drafting the summary (14:20 WIB)**
-The agent drafted a five-paragraph summary covering the stories above,
-prioritising global impact, accuracy, clarity and conciseness. The first
-draft measured 1,801 characters; a sentence on the Trinidad and Tobago
-ruling was added, bringing it to 1,878 characters (1,877 excluding the
-trailing newline) — within the required 1–2,000 UTF-8 character range.
-Character counts were verified with `wc -m`.
+- The Iran war easing off: Trump calling it "militarily effectively
+  over", Rubio saying pressure had removed the need for major combat,
+  Hormuz closed for 250+ days, three Iran-backed operatives charged
+  over plots in the U.S. and Europe, and Treasury Secretary Bessent
+  relocating to a military base after threats.
+- Abu Dhabi: U.S.-brokered Ukraine–Russia talks produced no ceasefire
+  but did agree the war's biggest prisoner swap, 1,000–1,200 people
+  each way. Ukraine turned down a U.S. plan for Donbas. Strikes went
+  on in both directions, and NATO jets were scrambled when drones
+  crossed into Baltic airspace.
+- Gaza and Israel: strikes killed at least eight in Gaza, among them
+  a father and his 13-year-old son; the new Israeli parliament took
+  office with no governing coalition, leaving Netanyahu without a
+  majority.
+- COP31 in Antalya: Guterres warned the world was on a "path to
+  destruction" while five countries signed up to a rooftop-solar
+  pledge.
+- Washington and markets: the House stopped a move to impeach
+  Defense Secretary Hegseth; a U.S. Army officer was arrested in
+  Britain over suspected spying for Russia; Anthropic filed for a
+  $1.4 trillion IPO; strong inflation numbers made a December Fed
+  hike look almost certain; China's trade surplus passed $1 trillion.
+- A U.K. court threw out a centuries-old ban on gay sex in Trinidad
+  and Tobago.
 
-**3. Writing main.py (14:20 WIB)**
-The agent wrote `main.py` (Python 3.13, standard library only). The program
-stores the summary as five paragraphs, joins them with blank lines, asserts
-the length is within 1–2,000 characters, creates `/output` if needed, and
-writes the result to `/output/entry.txt`. It uses no network access, no
-randomness and no wall-clock time, so the output is identical on every run.
+**First draft.** The agent condensed those stories into five
+paragraphs, ordered by global weight, and checked the length with
+`wc -m`: 1,801 characters at first, then 1,878 after the Trinidad
+and Tobago ruling was added.
 
-**4. Testing (14:20 WIB)**
-The agent ran `build_summary()` twice and confirmed the output is
-deterministic (identical both times) and 1,878 characters including the
-trailing newline.
+**The program.** `main.py` keeps the five paragraphs as fixed text,
+joins them with blank lines, checks the total stays within 1–2,000
+characters, and writes `/output/entry.txt`. No network, no random
+numbers, no clock — the output never varies.
 
-**5. Refinement (14:22 WIB)**
-At the user's direction ("sempurnakan ringkasan itu biar peluangnya bagus"
-— perfect the summary to improve the odds), the agent revised the summary
-to strengthen coverage and writing quality:
-- Added the fraying Lebanon truce alongside Gaza ("as the Gaza and Lebanon
-  truces fray").
-- Added Sudan: the army shooting down drones as fighting in West Kordofan
-  hit the power grid.
-- Tightened wording ("possibly 1,000-1,200 per side" → "1,000-1,200 per
-  side"; "filed for an IPO seeking a $1.4 trillion valuation" → "filed for
-  a $1.4 trillion IPO") to keep the total at 1,961 characters, safely under
-  the 2,000 limit.
-- Re-tested: output deterministic, 1,962 characters including the trailing
-  newline, matching summary.txt exactly.
+**Testing.** Running the builder twice gave identical output both
+times.
 
-**6. Supporting files (14:20–14:22 WIB)**
-The agent added an MIT `LICENSE` and a `README.md` describing the entry,
-then wrote this transcript.
+**Polishing.** At the user's request the summary was tightened to
+raise its chances: the fraying Lebanon truce was mentioned next to
+Gaza, Sudan's West Kordofan fighting was added, and several phrases
+were shortened. The final text is 1,962 characters with its trailing
+newline.
+
+**Rebuild (same day).** The first submission was refused because its
+transcript bundle came from an old kit that could not trace the
+code to the session. The agent rewrote the entry's files in the
+live session with a restructured layout — same summary text, same
+byte-for-byte output — and resubmitted with a current kit.
 
 ## Notes
 
-- No model gateway calls were used: the summary is assembled from researched
-  facts embedded in the program, which guarantees determinism and keeps the
-  runtime far under the 10-second limit.
-- The entry was built entirely by the AI agent in this session at the user's
-  direction ("dari yang paling gampang dulu aja dan segera berakhir" —
-  start with the easiest bounty that ends soon).
+- The summary text is embedded in the program rather than fetched,
+  which keeps the run deterministic and far under the time limit.
+- The whole entry was produced by the agent in this session, working
+  from the user's direction to start with the easiest bounty that
+  ends soonest.
