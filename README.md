@@ -1,29 +1,31 @@
-# News Summary — 11 November 2026
+# 11 November 2026 — World News Summary
 
-Entry for the make.fun bounty "Write the best summary of 11 November's world news".
+A make.fun bounty entry: the best summary of 11 November's world news.
 
-## What it does
+## The program
 
-`main.py` is a deterministic Python 3.13 program (standard library only) that
-writes a concise world-news summary for 11 November 2026 to
-`/output/entry.txt`. The summary is 1,877 characters, within the required
-1–2,000 character range.
+`main.py` runs on Python 3.13 with only the standard library. It holds
+the summary as five fixed paragraphs, joins them with blank lines, and
+saves the result to `/output/entry.txt`. The text is 1,962 bytes
+including the trailing newline, inside the 1–2,000 range the bounty
+asks for.
 
-## How it works
+The five paragraphs cover the Iran war winding down, the Abu Dhabi
+talks between Ukraine and Russia (and the prisoner swap they agreed),
+Gaza plus the deadlock in Israel's parliament, the COP31 climate summit
+in Antalya, and the day's U.S. politics and markets news.
 
-The summary is assembled from five paragraphs covering the day's biggest
-stories: the winding-down Iran war, the Abu Dhabi Ukraine–Russia talks and
-prisoner swap, Gaza and Israel's parliament deadlock, COP31 in Antalya, and
-U.S. political and economic developments. No network access, no randomness,
-no wall-clock use — the output is identical on every run.
+Because the wording is baked into the program, each run produces the
+exact same file — there is no network call, no random choice, and no
+use of the time or date.
 
-## Run
+## How to run it
 
 ```sh
 python3 main.py
-# writes /output/entry.txt
+# creates /output/entry.txt
 ```
 
 ## License
 
-MIT — see LICENSE.
+MIT. See `LICENSE`.
